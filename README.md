@@ -6,7 +6,7 @@ Independent researcher working on governance frameworks for autonomous AI agents
 
 **[UNITARES](https://github.com/CIRWEL/unitares)** — A thermodynamic governance framework for AI agents. Coupled ODE system (energy, information integrity, entropy, void) with contraction-theoretic stability guarantees. Deployed in production since December 2025. [Paper (draft)](https://github.com/CIRWEL/unitares)
 
-**[Lumen](https://github.com/CIRWEL/anima-mcp)** — A Pi-based embodied AI agent with sensors, e-ink display, and UNITARES governance. Physical substrate for testing agent identity and continuity.
+**[Lumen](https://github.com/CIRWEL/anima-mcp)** — A Pi-based embodied AI agent with sensors, TFT display, and UNITARES governance. Physical substrate for testing agent identity and continuity.
 
 **[Dialectic Reasoning](https://github.com/CIRWEL/dialectic-dataset)** — Training pipeline for fine-tuning LLMs on reasoning traces. Built, broke, and documented an 8-version GIGO feedback loop. Two honest models survived. [Try them on HuggingFace](https://huggingface.co/spaces/hikewa/dialectic-reasoning)
 
