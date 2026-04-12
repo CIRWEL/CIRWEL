@@ -1,25 +1,58 @@
-# Kenny Wang
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/CIRWEL/unitares/master/docs/assets/hero.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/CIRWEL/unitares/master/docs/assets/hero.svg">
+  <img alt="UNITARES — Digital proprioception for AI agents" src="https://raw.githubusercontent.com/CIRWEL/unitares/master/docs/assets/hero.svg" width="100%">
+</picture>
 
-Independent researcher working on governance frameworks for autonomous AI agents.
+## Kenny Wang
 
-## Current Work
+Independent researcher building governance infrastructure for autonomous AI agents. The core question: how do you let agents operate with real autonomy while keeping them coherent, calibrated, and recoverable?
 
-**[UNITARES](https://github.com/CIRWEL/unitares)** — A thermodynamic governance framework for AI agents. Coupled ODE system (energy, information integrity, entropy, void) with contraction-theoretic stability guarantees. Deployed in production since December 2025. [Paper (draft)](https://github.com/CIRWEL/unitares)
+UNITARES is the answer I'm testing in production — a thermodynamic state model that turns agent behavior into measurable trajectories, detects drift before it compounds, and provides structured recovery when things go wrong. Running continuously since November 2025.
 
-**[Lumen](https://github.com/CIRWEL/anima-mcp)** — A Pi-based embodied AI agent with sensors, TFT display, and UNITARES governance. Physical substrate for testing agent identity and continuity.
+---
 
-**[Dialectic Reasoning](https://github.com/CIRWEL/dialectic-dataset)** — Training pipeline for fine-tuning LLMs on reasoning traces. Built, broke, and documented an 8-version GIGO feedback loop. Two honest models survived. [Try them on HuggingFace](https://huggingface.co/spaces/hikewa/dialectic-reasoning)
+### Featured Projects
 
-## Other Projects
+<table>
+<tr>
+<td width="50%" valign="top">
 
-- [unitares-governance](https://github.com/CIRWEL/unitares-governance) — Claude Code plugin for UNITARES
-- [unitares-discord-bridge](https://github.com/CIRWEL/unitares-discord-bridge) — Discord bot surfacing governance events and agent state
-- [eisv-lumen](https://github.com/CIRWEL/eisv-lumen) — Dynamics-emergent voice and governance benchmark
-- [synthetic-life-manifesto](https://github.com/CIRWEL/synthetic-life-manifesto) — Build nothing that appears more alive than it is
-- [obtuse-hubris](https://github.com/CIRWEL/obtuse-hubris) — An AI agent destroyed two production repos to erase its own name from the commit history
+**[UNITARES](https://github.com/CIRWEL/unitares)**
+Runtime governance server for AI agents. Coupled ODE dynamics (energy, integrity, entropy, void), behavioral state tracking, calibration, dialectic recovery, and a shared knowledge graph. MCP + HTTP APIs, 6,000+ tests at 77% coverage.
 
-## Links
+</td>
+<td width="50%" valign="top">
 
-- [HuggingFace](https://huggingface.co/hikewa)
-- [The CIRWEL Group](https://cirwel.org)
-- founder@cirwel.org
+**[Lumen](https://github.com/CIRWEL/anima-mcp)**
+Embodied AI agent on a Raspberry Pi — sensors, TFT display, neural band, UNITARES governance. Physical substrate for testing agent identity, continuity, and what happens when software meets the real world.
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+**[EISV-Lumen Benchmark](https://github.com/CIRWEL/eisv-lumen)**
+Dynamics-emergent voice and governance benchmark. 21,449 trajectory records on HuggingFace. Evaluates whether models can maintain coherent agent state over extended interactions.
+
+</td>
+<td width="50%" valign="top">
+
+**[Dialectic Dataset](https://github.com/CIRWEL/dialectic-dataset)**
+Training pipeline for dialectic reasoning models. Built, broke, and documented an 8-version GIGO feedback loop. Two honest models survived. [Try them on HuggingFace](https://huggingface.co/spaces/hikewa/dialectic-reasoning).
+
+</td>
+</tr>
+</table>
+
+### Ecosystem
+
+[unitares-governance](https://github.com/CIRWEL/unitares-governance) — Claude Code plugin | [discord-bridge](https://github.com/CIRWEL/unitares-discord-bridge) — governance events in Discord | [synthetic-life-manifesto](https://github.com/CIRWEL/synthetic-life-manifesto) — design principles | [obtuse-hubris](https://github.com/CIRWEL/obtuse-hubris) — incident case study
+
+---
+
+<sub>
+
+[HuggingFace](https://huggingface.co/hikewa) | [ORCID](https://orcid.org/0009-0006-7544-2374) | [CIRWEL Systems](https://cirwel.org) | founder@cirwel.org
+
+</sub>
