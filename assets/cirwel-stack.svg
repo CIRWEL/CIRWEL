@@ -26,10 +26,12 @@
       .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
       .title { font-size: 72px; font-weight: 850; fill: #f0f6fc; }
       .subtitle { font-size: 23px; fill: #c6d3e4; }
-      .pill { font-size: 13px; font-weight: 800; fill: #0d1117; }
-      .card-title { font-size: 27px; font-weight: 850; fill: #f0f6fc; }
-      .card-sub { font-size: 17px; fill: #b8c6d8; }
+      .tag { font-size: 13px; font-weight: 850; fill: #9fb0c7; letter-spacing: 0.8px; }
+      .card-title { font-size: 29px; font-weight: 850; fill: #f0f6fc; }
+      .card-sub { font-size: 18px; fill: #b8c6d8; }
       .step { font-size: 16px; font-weight: 650; fill: #c6d3e4; }
+      .plate { fill: #111827; stroke: #3d4655; stroke-width: 2; vector-effect: non-scaling-stroke; shape-rendering: crispEdges; }
+      .bar { shape-rendering: crispEdges; }
     </style>
   </defs>
 
@@ -62,36 +64,36 @@
     <text class="label" x="126" y="148" text-anchor="middle" font-size="17" font-weight="850" fill="#ffffff">V</text>
   </g>
 
-  <g transform="translate(60 176)">
-    <rect x="0" y="0" width="252" height="92" rx="12" fill="#111827" stroke="#30363d" stroke-width="1.5"/>
-    <rect x="18" y="16" width="78" height="24" rx="12" fill="url(#green)"/>
-    <text class="label pill" x="57" y="32" text-anchor="middle">CORE</text>
-    <text class="label card-title" x="18" y="64">UNITARES</text>
-    <text class="label card-sub" x="18" y="84">EISV + verdicts</text>
+  <g transform="translate(60 172)">
+    <rect class="plate" x="0" y="0" width="252" height="98"/>
+    <rect class="bar" x="0" y="0" width="252" height="8" fill="url(#green)"/>
+    <text class="label tag" x="18" y="32">CORE</text>
+    <text class="label card-title" x="18" y="65">UNITARES</text>
+    <text class="label card-sub" x="18" y="88">EISV + verdicts</text>
   </g>
 
-  <g transform="translate(332 176)">
-    <rect x="0" y="0" width="252" height="92" rx="12" fill="#111827" stroke="#30363d" stroke-width="1.5"/>
-    <rect x="18" y="16" width="104" height="24" rx="12" fill="url(#amber)"/>
-    <text class="label pill" x="70" y="32" text-anchor="middle">RESEARCH</text>
-    <text class="label card-title" x="18" y="64">Paper v6</text>
-    <text class="label card-sub" x="18" y="84">Basins + benchmarks</text>
+  <g transform="translate(332 172)">
+    <rect class="plate" x="0" y="0" width="252" height="98"/>
+    <rect class="bar" x="0" y="0" width="252" height="8" fill="url(#amber)"/>
+    <text class="label tag" x="18" y="32">RESEARCH</text>
+    <text class="label card-title" x="18" y="65">Paper v6</text>
+    <text class="label card-sub" x="18" y="88">Basins + benchmarks</text>
   </g>
 
-  <g transform="translate(604 176)">
-    <rect x="0" y="0" width="252" height="92" rx="12" fill="#111827" stroke="#30363d" stroke-width="1.5"/>
-    <rect x="18" y="16" width="112" height="24" rx="12" fill="url(#violet)"/>
-    <text class="label pill" x="74" y="32" text-anchor="middle">CONTINUITY</text>
-    <text class="label card-title" x="18" y="64">Lumen</text>
-    <text class="label card-sub" x="18" y="84">Embodied substrate</text>
+  <g transform="translate(604 172)">
+    <rect class="plate" x="0" y="0" width="252" height="98"/>
+    <rect class="bar" x="0" y="0" width="252" height="8" fill="url(#violet)"/>
+    <text class="label tag" x="18" y="32">CONTINUITY</text>
+    <text class="label card-title" x="18" y="65">Lumen</text>
+    <text class="label card-sub" x="18" y="88">Embodied substrate</text>
   </g>
 
-  <g transform="translate(876 176)">
-    <rect x="0" y="0" width="264" height="92" rx="12" fill="#111827" stroke="#30363d" stroke-width="1.5"/>
-    <rect x="18" y="16" width="100" height="24" rx="12" fill="url(#blue)"/>
-    <text class="label pill" x="68" y="32" text-anchor="middle">ADAPTERS</text>
-    <text class="label card-title" x="18" y="64">Hosts + Ops</text>
-    <text class="label card-sub" x="18" y="84">MCP + Discord</text>
+  <g transform="translate(876 172)">
+    <rect class="plate" x="0" y="0" width="264" height="98"/>
+    <rect class="bar" x="0" y="0" width="264" height="8" fill="url(#blue)"/>
+    <text class="label tag" x="18" y="32">ADAPTERS</text>
+    <text class="label card-title" x="18" y="65">Hosts + Ops</text>
+    <text class="label card-sub" x="18" y="88">MCP + Discord</text>
   </g>
 
   <g transform="translate(96 300)">
