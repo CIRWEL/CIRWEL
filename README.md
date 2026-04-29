@@ -1,59 +1,61 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/CIRWEL/unitares/master/docs/assets/hero.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/CIRWEL/unitares/master/docs/assets/hero.svg">
-  <img alt="UNITARES — runtime governance for heterogeneous AI-agent fleets" src="https://raw.githubusercontent.com/CIRWEL/unitares/master/docs/assets/hero.svg" width="100%">
-</picture>
+<img alt="CIRWEL stack — runtime governance, continuity, and observability for autonomous agent fleets" src="./assets/cirwel-stack.svg" width="100%">
 
 ## CIRWEL
 
 CIRWEL is an independent research and systems lab, founded by Kenny Wang, building runtime governance, continuity, and observability infrastructure for autonomous AI-agent fleets.
 
-Its central project is UNITARES: a runtime governance layer for heterogeneous agents. Agents fail gradually before they fail visibly — drifting, thrashing, growing overconfident on stale context. UNITARES gives each agent a calibrated state vector it can read back, and an intervention verdict it can act on, so the agent itself can narrow scope, request review, or stop. State layer, not output filter.
+Agents fail gradually before they fail visibly — drifting, thrashing, growing overconfident on stale context. CIRWEL builds the state layer that lets agents notice and act on that drift before it becomes an incident.
 
 ```
 agent acts  →  check-in  →  calibrated state + verdict  →  self-regulates  →  audit trail
 ```
 
-The CIRWEL stack has run continuously since November 2025 as a single-operator deployment — that's a stress test, not a claim of external adoption. UNITARES is the flagship system; Lumen, the governance plugins, benchmarks, and bridges are its surrounding testbeds and adapters.
+UNITARES is the flagship runtime system. Lumen, the governance plugins, benchmarks, adapters, and Discord bridge are the surrounding stack: testbeds, host integrations, observability surfaces, and research artifacts.
+
+The CIRWEL stack has run continuously since November 2025 as a single-operator deployment. That is a stress test, not a claim of external adoption.
 
 ---
 
-### Featured
+### Stack
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-**[UNITARES](https://github.com/CIRWEL/unitares)**
-Runtime governance server. Coupled ODE state model (energy, integrity, entropy, valence), class-conditional calibration, dialectic recovery, and a shared knowledge graph. MCP + HTTP. 6,200+ tests at 77% coverage.
+**Runtime governance**
+
+[UNITARES](https://github.com/CIRWEL/unitares) is the MCP + HTTP governance server: EISV state dynamics, class-conditional calibration, intervention verdicts, dialectic recovery, and a shared knowledge graph.
 
 </td>
 <td width="50%" valign="top">
 
-**[Paper v6](https://github.com/CIRWEL/unitares-paper-v6)** — *Information-Theoretic Governance of Heterogeneous Agent Fleets*
-Argues fleet-wide normalization breaks under heterogeneous agent populations; proposes class-conditional calibration. 13,310-row counterfactual: 28.9% of basin assignments flip. DOI [10.5281/zenodo.19647159](https://doi.org/10.5281/zenodo.19647159) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6).
+**Research and evaluation**
+
+[Paper v6](https://github.com/CIRWEL/unitares-paper-v6) argues fleet-wide normalization breaks under heterogeneous agent populations and proposes class-conditional calibration. DOI [10.5281/zenodo.19647159](https://doi.org/10.5281/zenodo.19647159) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6) · [eisv-lumen](https://github.com/CIRWEL/eisv-lumen) · [dialectic-dataset](https://github.com/CIRWEL/dialectic-dataset)
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-**[Lumen](https://github.com/CIRWEL/anima-mcp)**
-Embodied agent on a Raspberry Pi — sensors, TFT display, neural band, UNITARES governance. Physical substrate for testing identity, continuity, and what happens when an agent persists across reboots.
+**Embodied continuity**
+
+[Lumen](https://github.com/CIRWEL/anima-mcp) is a Raspberry Pi embodied agent with sensors, display, generated drawings, persistent identity, and UNITARES governance. It is the physical substrate for testing continuity across reboots and environmental change.
 
 </td>
 <td width="50%" valign="top">
 
-**[Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin)**
-Client-side adapters for Claude Code, Codex/ChatGPT, and other MCP hosts. Hooks for lifecycle, check-ins, dialectic review, and knowledge-graph workflows.
+**Host adapters and operations**
+
+[Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin), [unitares-host-adapter](https://github.com/CIRWEL/unitares-host-adapter), and [hermes-agent](https://github.com/CIRWEL/hermes-agent) connect agent hosts to governance. [unitares-discord-bridge](https://github.com/CIRWEL/unitares-discord-bridge) surfaces events, HUD state, Lumen telemetry, and operator commands in Discord.
 
 </td>
 </tr>
 </table>
 
-### Adapters & ecosystem
+### Featured Repositories
 
-[hermes-agent](https://github.com/CIRWEL/hermes-agent) · [unitares-host-adapter](https://github.com/CIRWEL/unitares-host-adapter) · [unitares-discord-bridge](https://github.com/CIRWEL/unitares-discord-bridge) · [eisv-lumen benchmark](https://github.com/CIRWEL/eisv-lumen) · [dialectic-dataset](https://github.com/CIRWEL/dialectic-dataset) · [synthetic-life-manifesto](https://github.com/CIRWEL/synthetic-life-manifesto) · [obtuse-hubris](https://github.com/CIRWEL/obtuse-hubris) (incident case study)
+[UNITARES](https://github.com/CIRWEL/unitares) · [Paper v6](https://github.com/CIRWEL/unitares-paper-v6) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6) · [Lumen](https://github.com/CIRWEL/anima-mcp) · [Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin) · [host adapter](https://github.com/CIRWEL/unitares-host-adapter) · [Discord bridge](https://github.com/CIRWEL/unitares-discord-bridge) · [eisv-lumen](https://github.com/CIRWEL/eisv-lumen) · [dialectic-dataset](https://github.com/CIRWEL/dialectic-dataset) · [synthetic-life-manifesto](https://github.com/CIRWEL/synthetic-life-manifesto) · [obtuse-hubris](https://github.com/CIRWEL/obtuse-hubris)
 
 ---
 
