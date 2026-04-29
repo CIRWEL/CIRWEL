@@ -4,17 +4,17 @@
   <img alt="UNITARES — runtime governance for heterogeneous AI-agent fleets" src="https://raw.githubusercontent.com/CIRWEL/unitares/master/docs/assets/hero.svg" width="100%">
 </picture>
 
-## Kenny Wang
+## CIRWEL
 
-Independent researcher building runtime governance for autonomous AI-agent fleets.
+CIRWEL is an independent research and systems lab, founded by Kenny Wang, building runtime governance, continuity, and observability infrastructure for autonomous AI-agent fleets.
 
-Agents fail gradually before they fail visibly — drifting, thrashing, growing overconfident on stale context. UNITARES gives each agent a calibrated state vector it can read back, and an intervention verdict it can act on, so the agent itself can narrow scope, request review, or stop. State layer, not output filter.
+Its central project is UNITARES: a runtime governance layer for heterogeneous agents. Agents fail gradually before they fail visibly — drifting, thrashing, growing overconfident on stale context. UNITARES gives each agent a calibrated state vector it can read back, and an intervention verdict it can act on, so the agent itself can narrow scope, request review, or stop. State layer, not output filter.
 
 ```
 agent acts  →  check-in  →  calibrated state + verdict  →  self-regulates  →  audit trail
 ```
 
-Running continuously since November 2025 as a single-operator deployment — that's a stress test, not a claim of external adoption.
+The CIRWEL stack has run continuously since November 2025 as a single-operator deployment — that's a stress test, not a claim of external adoption. UNITARES is the flagship system; Lumen, the governance plugins, benchmarks, and bridges are its surrounding testbeds and adapters.
 
 ---
 
