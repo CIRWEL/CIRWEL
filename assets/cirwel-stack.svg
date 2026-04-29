@@ -56,7 +56,7 @@
     <text class="mono small" x="2" y="116">agents -> check-ins -> calibrated state + verdict -> recovery -> audit trail</text>
   </g>
 
-  <g transform="translate(725 54)">
+  <g transform="translate(760 38) scale(0.78)">
     <circle cx="110" cy="102" r="82" fill="#0b1220" stroke="#30363d"/>
     <ellipse cx="110" cy="102" rx="122" ry="42" stroke="#30363d" stroke-dasharray="5 7"/>
     <ellipse cx="110" cy="102" rx="42" ry="122" stroke="#30363d" stroke-dasharray="5 7" transform="rotate(55 110 102)"/>
@@ -73,7 +73,6 @@
     <text class="label" x="60" y="118" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">I</text>
     <text class="label" x="160" y="118" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">S</text>
     <text class="label" x="110" y="172" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">V</text>
-    <text class="mono tiny" x="110" y="216" text-anchor="middle">EISV STATE SPACE</text>
   </g>
 
   <g transform="translate(56 188)" filter="url(#shadow)">
