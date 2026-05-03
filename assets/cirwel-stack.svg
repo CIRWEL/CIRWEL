@@ -48,26 +48,6 @@
     <text class="label subtitle" x="2" y="94">Runtime governance, continuity, and observability for autonomous agents</text>
   </g>
 
-  <g transform="translate(865 14)">
-    <circle cx="126" cy="82" r="78" fill="none" stroke="#3d4655" stroke-width="2" stroke-dasharray="4 5" opacity="0.65"/>
-    <circle cx="126" cy="82" r="64" fill="#0b1220" stroke="#30363d" stroke-width="2"/>
-    <g stroke="#3d4655" stroke-width="1.5" opacity="0.45">
-      <line x1="126" y1="82" x2="124" y2="40"/>
-      <line x1="126" y1="82" x2="84" y2="64"/>
-      <line x1="126" y1="82" x2="172" y2="70"/>
-      <line x1="126" y1="82" x2="84" y2="110"/>
-      <line x1="126" y1="82" x2="170" y2="106"/>
-      <line x1="126" y1="82" x2="124" y2="128"/>
-    </g>
-    <circle cx="124" cy="40" r="9" fill="url(#blue)"/>
-    <circle cx="84" cy="64" r="9" fill="url(#amber)"/>
-    <circle cx="172" cy="70" r="8" fill="url(#violet)"/>
-    <circle cx="84" cy="110" r="8" fill="url(#violet)"/>
-    <circle cx="170" cy="106" r="9" fill="url(#amber)"/>
-    <circle cx="124" cy="128" r="8" fill="url(#blue)"/>
-    <circle cx="126" cy="82" r="14" fill="url(#green)"/>
-  </g>
-
   <g transform="translate(60 172)">
     <rect class="plate" x="0" y="0" width="252" height="98"/>
     <rect class="bar" x="0" y="0" width="252" height="8" fill="url(#green)"/>
