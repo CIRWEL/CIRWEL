@@ -24,7 +24,7 @@ The CIRWEL stack has run continuously since November 2025 as a single-operator d
 
 **Runtime governance**
 
-[UNITARES](https://github.com/CIRWEL/unitares) is the MCP + HTTP governance server: EISV state dynamics, class-conditional calibration, intervention verdicts, dialectic recovery, and a shared knowledge graph.
+[UNITARES](https://github.com/CIRWEL/unitares) is the MCP + HTTP governance server: live state dynamics, class-conditional calibration, intervention verdicts, dialectic recovery, and a shared knowledge graph.
 
 </td>
 <td width="50%" valign="top">
@@ -55,7 +55,7 @@ The CIRWEL stack has run continuously since November 2025 as a single-operator d
 
 ### Featured Repositories
 
-[UNITARES](https://github.com/CIRWEL/unitares) · [Paper v6](https://github.com/CIRWEL/unitares-paper-v6) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6) · [Lumen](https://github.com/CIRWEL/anima-mcp) · [Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin) · [host adapter](https://github.com/CIRWEL/unitares-host-adapter) · [Discord bridge](https://github.com/CIRWEL/unitares-discord-bridge) · [eisv-lumen](https://github.com/CIRWEL/eisv-lumen) · [dialectic-dataset](https://github.com/CIRWEL/dialectic-dataset) · [synthetic-life-manifesto](https://github.com/CIRWEL/synthetic-life-manifesto) · [obtuse-hubris](https://github.com/CIRWEL/obtuse-hubris)
+[UNITARES](https://github.com/CIRWEL/unitares) · [Paper v6](https://github.com/CIRWEL/unitares-paper-v6) · [Lumen](https://github.com/CIRWEL/anima-mcp) · [Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6) · [Discord bridge](https://github.com/CIRWEL/unitares-discord-bridge)
 
 ---
 
