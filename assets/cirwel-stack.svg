@@ -49,19 +49,23 @@
   </g>
 
   <g transform="translate(865 14)">
+    <circle cx="126" cy="82" r="78" fill="none" stroke="#3d4655" stroke-width="2" stroke-dasharray="4 5" opacity="0.65"/>
     <circle cx="126" cy="82" r="64" fill="#0b1220" stroke="#30363d" stroke-width="2"/>
-    <line x1="126" y1="32" x2="82" y2="96" stroke="#3d4655" stroke-width="3"/>
-    <line x1="126" y1="32" x2="170" y2="96" stroke="#3d4655" stroke-width="3"/>
-    <line x1="82" y1="96" x2="126" y2="140" stroke="#3d4655" stroke-width="3"/>
-    <line x1="170" y1="96" x2="126" y2="140" stroke="#3d4655" stroke-width="3"/>
-    <circle cx="126" cy="32" r="22" fill="url(#green)"/>
-    <circle cx="82" cy="96" r="22" fill="url(#blue)"/>
-    <circle cx="170" cy="96" r="22" fill="url(#amber)"/>
-    <circle cx="126" cy="140" r="22" fill="url(#violet)"/>
-    <text class="label" x="126" y="40" text-anchor="middle" font-size="17" font-weight="850" fill="#ffffff">E</text>
-    <text class="label" x="82" y="104" text-anchor="middle" font-size="17" font-weight="850" fill="#ffffff">I</text>
-    <text class="label" x="170" y="104" text-anchor="middle" font-size="17" font-weight="850" fill="#ffffff">S</text>
-    <text class="label" x="126" y="148" text-anchor="middle" font-size="17" font-weight="850" fill="#ffffff">V</text>
+    <g stroke="#3d4655" stroke-width="1.5" opacity="0.45">
+      <line x1="126" y1="82" x2="124" y2="40"/>
+      <line x1="126" y1="82" x2="84" y2="64"/>
+      <line x1="126" y1="82" x2="172" y2="70"/>
+      <line x1="126" y1="82" x2="84" y2="110"/>
+      <line x1="126" y1="82" x2="170" y2="106"/>
+      <line x1="126" y1="82" x2="124" y2="128"/>
+    </g>
+    <circle cx="124" cy="40" r="9" fill="url(#blue)"/>
+    <circle cx="84" cy="64" r="9" fill="url(#amber)"/>
+    <circle cx="172" cy="70" r="8" fill="url(#violet)"/>
+    <circle cx="84" cy="110" r="8" fill="url(#violet)"/>
+    <circle cx="170" cy="106" r="9" fill="url(#amber)"/>
+    <circle cx="124" cy="128" r="8" fill="url(#blue)"/>
+    <circle cx="126" cy="82" r="14" fill="url(#green)"/>
   </g>
 
   <g transform="translate(60 172)">
@@ -69,7 +73,7 @@
     <rect class="bar" x="0" y="0" width="252" height="8" fill="url(#green)"/>
     <text class="label tag" x="18" y="32">CORE</text>
     <text class="label card-title" x="18" y="65">UNITARES</text>
-    <text class="label card-sub" x="18" y="88">EISV + verdicts</text>
+    <text class="label card-sub" x="18" y="88">state + verdicts</text>
   </g>
 
   <g transform="translate(332 172)">
