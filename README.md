@@ -1,4 +1,4 @@
-<img alt="CIRWEL stack — runtime governance, continuity, and observability for autonomous agent fleets" src="./assets/cirwel-stack.svg" width="100%">
+<img alt="CIRWEL stack — runtime governance for heterogeneous AI-agent fleets" src="./assets/cirwel-stack.svg" width="100%">
 
 ## CIRWEL
 
@@ -9,8 +9,6 @@ Agents fail gradually before they fail visibly — drifting, thrashing, growing 
 ```
 agent acts  →  check-in  →  calibrated state + verdict  →  self-regulates  →  audit trail
 ```
-
-UNITARES is the flagship runtime system. Lumen, the governance plugins, benchmarks, adapters, and Discord bridge are the surrounding stack: testbeds, host integrations, observability surfaces, and research artifacts.
 
 The CIRWEL stack has run continuously since November 2025 as a single-operator deployment. That is a stress test, not a claim of external adoption.
 
@@ -24,30 +22,30 @@ The CIRWEL stack has run continuously since November 2025 as a single-operator d
 
 **Runtime governance**
 
-[UNITARES](https://github.com/CIRWEL/unitares) is the MCP + HTTP governance server: live state dynamics, class-conditional calibration, intervention verdicts, dialectic recovery, and a shared knowledge graph.
+[UNITARES](https://github.com/CIRWEL/unitares) is the MCP + HTTP governance server. Agents check in; UNITARES tracks a live state vector per agent and returns a verdict — `proceed`, `guide`, `pause`, or `reject` — so agents self-regulate before circuit breakers fire.
 
 </td>
 <td width="50%" valign="top">
 
-**Research and evaluation**
+**Host integrations**
 
-[Paper v6](https://github.com/CIRWEL/unitares-paper-v6) argues fleet-wide normalization breaks under heterogeneous agent populations and proposes class-conditional calibration. DOI [10.5281/zenodo.19647159](https://doi.org/10.5281/zenodo.19647159) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6) · [eisv-lumen](https://github.com/CIRWEL/eisv-lumen) · [dialectic-dataset](https://github.com/CIRWEL/dialectic-dataset)
+[Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin), [host adapter](https://github.com/CIRWEL/unitares-host-adapter), and [hermes-agent](https://github.com/CIRWEL/hermes-agent) mount governance into Claude Code, Codex, and other agent hosts.
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-**Embodied continuity**
+**Peer review on disagree**
 
-[Lumen](https://github.com/CIRWEL/anima-mcp) is a Raspberry Pi embodied agent with sensors, display, generated drawings, persistent identity, and UNITARES governance. It is the physical substrate for testing continuity across reboots and environmental change.
+When an agent's confidence and the system's assessment diverge, UNITARES runs a short dialectic with peer agents — or an LLM, when no peers are around — before anything halts. Training data: [dialectic-dataset](https://github.com/CIRWEL/dialectic-dataset).
 
 </td>
 <td width="50%" valign="top">
 
-**Host adapters and operations**
+**Research and observability**
 
-[Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin), [unitares-host-adapter](https://github.com/CIRWEL/unitares-host-adapter), and [hermes-agent](https://github.com/CIRWEL/hermes-agent) connect agent hosts to governance. [unitares-discord-bridge](https://github.com/CIRWEL/unitares-discord-bridge) surfaces events, HUD state, Lumen telemetry, and operator commands in Discord.
+[Paper v6](https://github.com/CIRWEL/unitares-paper-v6) (concept DOI [10.5281/zenodo.19647159](https://doi.org/10.5281/zenodo.19647159)) on heterogeneous-fleet calibration · [repro kit](https://github.com/CIRWEL/unitares-repro-v6) for the §11.6 verdict counterfactual · [Discord bridge](https://github.com/CIRWEL/unitares-discord-bridge) for live operator visibility.
 
 </td>
 </tr>
@@ -55,7 +53,7 @@ The CIRWEL stack has run continuously since November 2025 as a single-operator d
 
 ### Featured Repositories
 
-[UNITARES](https://github.com/CIRWEL/unitares) · [Paper v6](https://github.com/CIRWEL/unitares-paper-v6) · [Lumen](https://github.com/CIRWEL/anima-mcp) · [Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6) · [Discord bridge](https://github.com/CIRWEL/unitares-discord-bridge)
+[UNITARES](https://github.com/CIRWEL/unitares) · [Paper v6](https://github.com/CIRWEL/unitares-paper-v6) · [Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin) · [host adapter](https://github.com/CIRWEL/unitares-host-adapter) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6) · [Discord bridge](https://github.com/CIRWEL/unitares-discord-bridge)
 
 ---
 
