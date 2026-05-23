@@ -12,6 +12,19 @@ agent acts  →  check-in  →  calibrated state + verdict  →  self-regulates 
 
 The CIRWEL stack has run continuously since November 2025 as a single-operator deployment. That is a stress test, not a claim of external adoption.
 
+### For reviewers
+
+- **What this is:** runtime state telemetry for agent fleets after deployment — the layer between evals/guardrails and incident response.
+- **What this is not:** not an output filter, not a sandbox, not a universal ethics oracle, and not yet a claim of external adoption.
+- **Initial wedge:** teams running long-lived coding, research, or operations agents add one MCP/REST check-in per unit of work plus outcome events from tests, tools, and other hard signals.
+- **Current ask:** external pilots and design partners who already operate autonomous agents long enough for drift, calibration, and recovery to matter.
+
+**Read order:**
+
+1. **3 minutes:** [`unitares`](https://github.com/CIRWEL/unitares) → run `docker compose up` + `make demo`.
+2. **10 minutes:** add [`unitares-governance-plugin`](https://github.com/CIRWEL/unitares-governance-plugin), [`unitares-host-adapter`](https://github.com/CIRWEL/unitares-host-adapter), and [`anima-mcp`](https://github.com/CIRWEL/anima-mcp).
+3. **30 minutes:** read [`unitares-paper-v6`](https://github.com/CIRWEL/unitares-paper-v6), reproduce §11.6 with [`unitares-repro-v6`](https://github.com/CIRWEL/unitares-repro-v6), and inspect [`eisv-lumen`](https://github.com/CIRWEL/eisv-lumen).
+
 ---
 
 ### Stack
@@ -53,7 +66,7 @@ When an agent's confidence and the system's assessment diverge, UNITARES runs a 
 
 ### Featured Repositories
 
-[UNITARES](https://github.com/CIRWEL/unitares) · [Paper v6](https://github.com/CIRWEL/unitares-paper-v6) · [Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin) · [host adapter](https://github.com/CIRWEL/unitares-host-adapter) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6) · [Discord bridge](https://github.com/CIRWEL/unitares-discord-bridge)
+[UNITARES](https://github.com/CIRWEL/unitares) · [Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin) · [host adapter](https://github.com/CIRWEL/unitares-host-adapter) · [Anima/Lumen](https://github.com/CIRWEL/anima-mcp) · [EISV-Lumen](https://github.com/CIRWEL/eisv-lumen) · [Paper v6](https://github.com/CIRWEL/unitares-paper-v6) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6)
 
 ---
 
