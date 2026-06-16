@@ -1,0 +1,148 @@
+# Track B — Implementation blueprint (`operator_delegate` disclosure scope)
+
+- **Status:** Ready to apply against `CIRWEL/unitares` (this repo cannot write to
+  it; lift-and-shift this file into a unitares PR).
+- **Prereq:** Track A enforced (`UNITARES_IDENTITY_STRICT=strict`,
+  `UNITARES_SESSION_FINGERPRINT_CHECK=strict`). Do not ship Track B first.
+- **Goal:** Grant a blessed agent session **read-only** UUID/lineage disclosure
+  without granting the operator write/admin surface or any resume capability.
+
+> Anchors marked **(verified)** were read from code via `search_code`. Anchors
+> marked **(confirm)** are named from context and should be confirmed against the
+> file when implementing (fragment search could not pin the exact identifier).
+
+## Design invariant
+
+Two capabilities must stay separate:
+
+| Capability | Credential that may grant it | Must NOT be granted by delegate |
+|---|---|---|
+| Read-only identifier/lineage disclosure | full operator token **or** delegate grant | — |
+| Write/admin (`archive_agent`, `operator_resume_agent`, config-set, dialectic-request, wave3a admin) | full operator token only | ✅ delegate rejected |
+| Per-call identity resolution (resume) | full operator token (today) | ✅ delegate never a resolution source |
+
+The delegate is **additive on the read path only**. Nothing already gated by the
+full operator token loosens.
+
+## Touch points
+
+### 1. `src/mcp_handlers/identity/operator.py` — add a disclosure scope
+
+Today: `is_operator_caller(signals: Optional[SessionSignals]) -> bool` **(verified)**
+validates `X-Unitares-Operator` against `UNITARES_OPERATOR_TOKENS`
+(`_OPERATOR_TOKENS_ENV`, **verified**; CSV→set helper, default deny, two-part
+check).
+
+Add a parallel, strictly-weaker check:
+
+```python
+_DELEGATE_TOKENS_ENV = "UNITARES_DISCLOSURE_DELEGATE_TOKENS"  # new, CSV allowlist
+
+def is_disclosure_delegate_caller(signals: Optional[SessionSignals] = None) -> bool:
+    """True if the request presents a valid *disclosure-only* delegate token.
+
+    Same two-part shape as is_operator_caller (header present AND in allowlist),
+    but against a SEPARATE allowlist. Default deny. Grants ONLY read-only
+    identifier/lineage disclosure — never writes, never identity resolution.
+    """
+    # mirror is_operator_caller's signal extraction + allowlist compare,
+    # keyed on _DELEGATE_TOKENS_ENV. A token may NOT appear in both lists
+    # (validate disjoint at load; if it does, treat as operator, not delegate,
+    # and log a config warning).
+
+def caller_can_disclose(signals: Optional[SessionSignals] = None) -> bool:
+    return is_operator_caller(signals) or is_disclosure_delegate_caller(signals)
+```
+
+(Option 2 / ontology-clean variant: replace the env allowlist with a per-session
+grant store `{grant_id, agent_uuid, granted_by, scope, issued_at, expires_at}` and
+have `is_disclosure_delegate_caller` resolve the bound agent's active grant. Start
+with the env-token form behind the same `caller_can_disclose` seam so the call
+sites below never change when you upgrade.)
+
+### 2. `src/mcp_handlers/lifecycle/query.py` — widen the read gate only
+
+Today **(verified)**: `_is_operator_request()` wraps `is_operator_caller()`; the
+disclosure helpers `_visible_agent_identifier(...)` and
+`_visible_related_agent_identifier(agent_id, caller_uuid, operator_caller)` gate on
+`if operator_caller or agent_id == caller_uuid: return True`.
+
+Change: feed these helpers from `caller_can_disclose()` instead of
+`is_operator_caller()`. Rename the local for honesty:
+
+```python
+def _can_disclose_request() -> bool:
+    from src.mcp_handlers.identity.operator import caller_can_disclose
+    try:
+        return caller_can_disclose()
+    except Exception:
+        return False
+# pass this in where operator_caller= is currently sourced from _is_operator_request()
+```
+
+This is the ONLY behavioral widening. The gate logic itself is unchanged.
+
+### 3. `src/mcp_handlers/updates/phases.py` — keep delegate OUT of resolution
+
+The strong identity-source set containing `"operator_token"` **(verified entry;
+set name confirm)** — sibling to `_MEDIUM_IDENTITY_SOURCES` **(verified)** — must
+**not** gain a delegate entry. The delegate token is never an identity-resolution
+source; it cannot stand in as per-call resume proof. Add a regression test
+asserting the delegate token does not resolve identity (see test matrix).
+
+### 4. Write/admin handlers — confirm they reject the delegate
+
+These currently key on full-operator presence and do **no** ownership check, so
+they are safe **iff** they keep calling `is_operator_caller` (not
+`caller_can_disclose`):
+
+- `src/mcp_handlers/lifecycle/mutation.py` — `@mcp_tool("archive_agent", ...,
+  register=False)` `handle_archive_agent`, *"No ownership check -- dashboard and
+  operator agents need to archive"* **(verified)**.
+- `src/mcp_handlers/lifecycle/operations.py` + `.../self_recovery.py` —
+  `handle_operator_resume_agent`, *"No ownership check -- mirrors archive_agent
+  pattern"* **(verified)**.
+- config-set, dialectic-request, `src/mcp_handlers/wave3a_admin.py` **(confirm
+  call sites)**.
+
+Action: audit each to confirm it gates on `is_operator_caller`. Add an explicit
+assertion/test that a delegate-only token is rejected by every one of them.
+
+### 5. Audit event
+
+On any disclosure performed because `is_disclosure_delegate_caller` was true (i.e.
+not full operator, not self), emit an audit event
+`{event: "lineage_disclosed_via_delegate", grant_id|token_id, agent_uuid,
+disclosed_agent_id}` mirroring the existing `_emit_audit` pattern in
+`src/mcp_handlers/identity/handlers.py` **(confirm helper name)**. This restores
+attribution that a shared bearer otherwise destroys.
+
+### 6. Out of scope — do not touch
+
+`_build_public_payload` (v3.3-A KG redaction,
+`src/identity/trajectory_continuity.py`, **verified earlier**) stays
+non-bypassable. The delegate scope is identifier/lineage disclosure only, never
+KG payload widening.
+
+## Test matrix
+
+| Caller | Read UUID/lineage | archive/operator_resume/config-set | Resolves identity (resume) |
+|---|---|---|---|
+| no token | redacted | reject | no |
+| self (`agent_id == caller_uuid`) | disclosed | n/a | own session |
+| delegate token | **disclosed** | **reject** | **no** |
+| full operator token | disclosed | allow | yes (unchanged) |
+| token in both lists | treat as operator + config warning | allow | yes |
+
+Plus: delegate token absent from the `phases.py` strong-source set; disclosure via
+delegate emits the audit event; KG public payload unchanged for delegate.
+
+## Rollout
+
+1. Land code behind an unset `UNITARES_DISCLOSURE_DELEGATE_TOKENS` (no-op until a
+   token is configured — same default-deny posture as the operator token).
+2. Confirm Track A strict flags are enforced.
+3. Mint a delegate token, set it on exactly one trusted agent session, verify the
+   test-matrix behavior live.
+4. (Option 2) Replace the env allowlist with the per-session grant store behind
+   the unchanged `caller_can_disclose` seam.
