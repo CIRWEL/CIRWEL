@@ -17,7 +17,7 @@ The CIRWEL stack has run continuously since November 2025 as a single-operator d
 - **What this is:** runtime state telemetry for agent fleets after deployment — the layer between evals/guardrails and incident response.
 - **What this is not:** not an output filter, not a sandbox, not a universal ethics oracle, and not yet a claim of external adoption.
 - **Initial wedge:** teams running long-lived coding, research, or operations agents add one MCP/REST check-in per unit of work plus outcome events from tests, tools, and other hard signals.
-- **Current ask:** external pilots and design partners who already operate autonomous agents long enough for drift, calibration, and recovery to matter.
+- **Current ask:** external pilots and [design partners](./docs/design-partners.md) who already operate autonomous agents long enough for drift, calibration, and recovery to matter.
 
 **Read order:**
 
