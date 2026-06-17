@@ -64,6 +64,14 @@ When an agent's confidence and the system's assessment diverge, UNITARES runs a 
 </tr>
 </table>
 
+### Research
+
+Papers stay in their own repos so each keeps its DOI, license, and release cadence — this is the index.
+
+- **[UNITARES v6](https://github.com/CIRWEL/unitares-paper-v6)** — information-theoretic governance of heterogeneous agent fleets. Concept DOI [10.5281/zenodo.19647159](https://doi.org/10.5281/zenodo.19647159) · repro kit [`unitares-repro-v6`](https://github.com/CIRWEL/unitares-repro-v6) reproduces the §11.6 verdict counterfactual.
+- **[Trajectory Identity](https://github.com/CIRWEL/trajectory-identity-paper)** — identity for AI agents as a dynamical-systems trajectory signature, validated on Lumen (Raspberry Pi 4, 65 days, 226k observations). Working draft v0.11 · CC BY 4.0.
+- **[Digital Proprioception & Allostatic Load](https://github.com/CIRWEL/digital-proprioception-paper)** — the cumulative-deviation hypothesis implemented in a deployed multi-agent system; bridges UNITARES governance to McEwen's allostatic-load framework.
+
 ### Featured Repositories
 
 [UNITARES](https://github.com/CIRWEL/unitares) · [Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin) · [host adapter](https://github.com/CIRWEL/unitares-host-adapter) · [Anima/Lumen](https://github.com/CIRWEL/anima-mcp) · [EISV-Lumen](https://github.com/CIRWEL/eisv-lumen) · [Paper v6](https://github.com/CIRWEL/unitares-paper-v6) · [repro kit](https://github.com/CIRWEL/unitares-repro-v6)
