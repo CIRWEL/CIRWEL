@@ -12,6 +12,8 @@ agent acts  →  check-in  →  calibrated state + verdict  →  self-regulates 
 
 The CIRWEL stack has run continuously since November 2025 as a single-operator deployment. That is a stress test, not a claim of external adoption.
 
+**One-page overview:** [cirwel.github.io](https://cirwel.github.io/)
+
 ### For reviewers
 
 - **What this is:** runtime state telemetry for agent fleets after deployment — the layer between evals/guardrails and incident response.
@@ -69,7 +71,7 @@ When an agent's confidence and the system's assessment diverge, UNITARES runs a 
 Papers stay in their own repos so each keeps its DOI, license, and release cadence — this is the index.
 
 - **[UNITARES v6](https://github.com/CIRWEL/unitares-paper-v6)** — information-theoretic governance of heterogeneous agent fleets. Concept DOI [10.5281/zenodo.19647159](https://doi.org/10.5281/zenodo.19647159) · repro kit [`unitares-repro-v6`](https://github.com/CIRWEL/unitares-repro-v6) reproduces the §11.6 verdict counterfactual.
-- **[Trajectory Identity](https://github.com/CIRWEL/trajectory-identity-paper)** — identity for AI agents as a dynamical-systems trajectory signature, validated on Lumen (Raspberry Pi 4, 65 days, 226k observations). Working draft v0.11 · CC BY 4.0.
+- **[Trajectory Identity](https://github.com/CIRWEL/trajectory-identity-paper)** — identity for AI agents as a dynamical-systems trajectory signature, validated on Lumen (Raspberry Pi 4, 65 days, 226k observations). Working draft v0.14 · CC BY 4.0.
 - **[Digital Proprioception & Allostatic Load](https://github.com/CIRWEL/digital-proprioception-paper)** — the cumulative-deviation hypothesis implemented in a deployed multi-agent system; bridges UNITARES governance to McEwen's allostatic-load framework.
 
 ### Featured Repositories
