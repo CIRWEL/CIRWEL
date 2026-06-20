@@ -1,81 +1,42 @@
 <img alt="CIRWEL stack — runtime governance for heterogeneous AI-agent fleets" src="./assets/cirwel-stack.svg" width="100%">
 
-## CIRWEL
+## Kenny Wang — CIRWEL Systems
 
-CIRWEL is an independent research and systems lab, founded by Kenny Wang, building runtime governance, continuity, and observability infrastructure for autonomous AI-agent fleets.
+I build **runtime safety infrastructure for autonomous AI agents** — the layer that operates *after* deployment, while agents are actually running. Agents fail gradually before they fail visibly: drifting, thrashing, growing overconfident on stale context. CIRWEL builds the state layer that lets an agent — and its operator — notice and act on that drift before it becomes an incident.
 
-Agents fail gradually before they fail visibly — drifting, thrashing, growing overconfident on stale context. CIRWEL builds the state layer that lets agents notice and act on that drift before it becomes an incident.
+The stack has run continuously on a single-operator development fleet since **November 2025**. That's a stress test and a telemetry corpus, not a claim of external adoption — external validation is the next step.
 
-```
-agent acts  →  check-in  →  calibrated state + verdict  →  self-regulates  →  audit trail
-```
+### → [**cirwel.github.io**](https://cirwel.github.io) — the full index
 
-The CIRWEL stack has run continuously since November 2025 as a single-operator deployment. That is a stress test, not a claim of external adoption.
+Papers, systems, datasets, and decks, all in one place. **That page is canonical**; this profile is just the front door.
 
-**One-page overview:** [cirwel.github.io](https://cirwel.github.io/)
-
-### For reviewers
-
-- **What this is:** runtime state telemetry for agent fleets after deployment — the layer between evals/guardrails and incident response.
-- **What this is not:** not an output filter, not a sandbox, not a universal ethics oracle, and not yet a claim of external adoption.
-- **Initial wedge:** teams running long-lived coding, research, or operations agents add one MCP/REST check-in per unit of work plus outcome events from tests, tools, and other hard signals.
-- **Current ask:** external pilots and [design partners](./docs/design-partners.md) who already operate autonomous agents long enough for drift, calibration, and recovery to matter.
-
-**Read order:**
-
-1. **3 minutes:** [`unitares`](https://github.com/CIRWEL/unitares) → run `docker compose up` + `make demo`.
-2. **10 minutes:** add [`unitares-governance-plugin`](https://github.com/CIRWEL/unitares-governance-plugin), [`unitares-host-adapter`](https://github.com/CIRWEL/unitares-host-adapter), and [`anima-mcp`](https://github.com/CIRWEL/anima-mcp).
-3. **30 minutes:** read [`unitares-paper-v6`](https://github.com/CIRWEL/unitares-paper-v6), reproduce §11.6 with [`unitares-repro-v6`](https://github.com/CIRWEL/unitares-repro-v6), and inspect [`eisv-lumen`](https://github.com/CIRWEL/eisv-lumen).
+[![Index](https://img.shields.io/badge/▶_Full_index-cirwel.github.io-5eead4?style=for-the-badge&labelColor=0f171f)](https://cirwel.github.io)
+[![UNITARES](https://img.shields.io/badge/UNITARES-governance_runtime-1f6feb?style=for-the-badge&labelColor=0f171f)](https://github.com/CIRWEL/unitares)
+[![Paper v6](https://img.shields.io/badge/Paper_v6-DOI-8957e5?style=for-the-badge&labelColor=0f171f)](https://doi.org/10.5281/zenodo.19647159)
 
 ---
 
-### Stack
+### The work, in four lines
 
-<table>
-<tr>
-<td width="50%" valign="top">
+| | | |
+|---|---|---|
+| **UNITARES** | Governance runtime — MCP + HTTP, Postgres-backed | Agents check in; it grades drift and calibration against each agent's *own* baseline and returns a verdict (`proceed` / `guide` / `pause` / `reject`) every call. Live since Nov 2025. → [repo](https://github.com/CIRWEL/unitares) |
+| **Anima** | The self-sensing counterpart | The same EISV state model on physical hardware (Pi 4, real sensors), turned inward — an edge agent that senses and reports its own interior. The longitudinal source behind the papers. → [anima-mcp](https://github.com/CIRWEL/anima-mcp) |
+| **Research** | 3 papers / preprints | Information-theoretic fleet governance ([v6, DOI](https://doi.org/10.5281/zenodo.19647159)) · trajectory identity ([Wang 2026b](https://github.com/CIRWEL/trajectory-identity-paper)) · digital proprioception ([Wang 2026c](https://github.com/CIRWEL/digital-proprioception-paper)). |
+| **Datasets** | Published telemetry corpora | [32,181 labeled EISV trajectories](https://huggingface.co/datasets/hikewa/unitares-eisv-trajectories) (20,655 real) · [verdict-counterfactual repro kit](https://github.com/CIRWEL/unitares-repro-v6). |
 
-**Runtime governance**
+**Start here:** [`unitares`](https://github.com/CIRWEL/unitares) → `docker compose up -d --wait && make demo` drives a synthetic agent through seven check-ins and prints the verdict at each step.
 
-[UNITARES](https://github.com/CIRWEL/unitares) is the MCP + HTTP governance server. Agents check in; UNITARES tracks a live state vector per agent and returns a verdict — `proceed`, `guide`, `pause`, or `reject` — so agents self-regulate before circuit breakers fire.
+### For reviewers
 
-</td>
-<td width="50%" valign="top">
+- **What this is:** runtime state telemetry for agent fleets *after* deployment — the layer between evals/guardrails and incident response.
+- **What this is not:** not an output filter, not a sandbox, not an ethics oracle, and not yet a claim of external adoption.
+- **Current ask:** external pilots and [design partners](./docs/design-partners.md) who already run autonomous agents long enough for drift, calibration, and recovery to matter.
 
-**Host integrations**
-
-[Governance plugin](https://github.com/CIRWEL/unitares-governance-plugin), [host adapter](https://github.com/CIRWEL/unitares-host-adapter), and [hermes-agent](https://github.com/CIRWEL/hermes-agent) mount governance into Claude Code, Codex, and other agent hosts.
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-**Peer review on disagree**
-
-When an agent's confidence and the system's assessment diverge, UNITARES runs a short dialectic with peer agents — or an LLM, when no peers are around — before anything halts. Training data: [dialectic-dataset](https://github.com/CIRWEL/dialectic-dataset).
-
-</td>
-<td width="50%" valign="top">
-
-**Research and observability**
-
-[Paper v6](https://github.com/CIRWEL/unitares-paper-v6) (concept DOI [10.5281/zenodo.19647159](https://doi.org/10.5281/zenodo.19647159)) on heterogeneous-fleet calibration · [repro kit](https://github.com/CIRWEL/unitares-repro-v6) for the §11.6 verdict counterfactual · [Discord bridge](https://github.com/CIRWEL/unitares-discord-bridge) for live operator visibility.
-
-</td>
-</tr>
-</table>
-
-### Research
-
-Papers stay in their own repos, each with its own DOI, license, and release cadence. The maintained index — papers, datasets, systems, and decks — lives at **[cirwel.github.io](https://cirwel.github.io/)**.
-
-- **[UNITARES v6](https://github.com/CIRWEL/unitares-paper-v6)** — information-theoretic governance of heterogeneous agent fleets · concept DOI [10.5281/zenodo.19647159](https://doi.org/10.5281/zenodo.19647159)
-- **[Trajectory Identity](https://github.com/CIRWEL/trajectory-identity-paper)** — AI-agent identity as a dynamical-systems trajectory signature · CC BY 4.0
-- **[Digital Proprioception & Allostatic Load](https://github.com/CIRWEL/digital-proprioception-paper)** — the cumulative-deviation hypothesis in a deployed multi-agent system
+---
 
 <sub>
 
-[HuggingFace](https://huggingface.co/hikewa) · [ORCID](https://orcid.org/0009-0006-7544-2374) · [CIRWEL Systems](https://cirwel.org) · founder@cirwel.org
+[Full index ↗](https://cirwel.github.io) · [GitHub](https://github.com/CIRWEL) · [HuggingFace](https://huggingface.co/hikewa) · [ORCID](https://orcid.org/0009-0006-7544-2374) · [CIRWEL Systems](https://cirwel.org) · founder@cirwel.org
 
 </sub>
