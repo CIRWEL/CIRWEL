@@ -21,7 +21,7 @@ Papers, systems, datasets, and decks, all in one place. **That page is canonical
 | | | |
 |---|---|---|
 | **UNITARES** | Governance runtime — MCP + HTTP, Postgres-backed | Agents check in; it grades drift and calibration against each agent's *own* baseline and returns a verdict (`proceed` / `guide` / `pause` / `reject`) every call. Live since Nov 2025. → [repo](https://github.com/CIRWEL/unitares) |
-| **Anima** | The self-sensing counterpart | The same EISV state model on physical hardware (Pi 4, real sensors), turned inward — an edge agent that senses and reports its own interior. The longitudinal source behind the papers. → [anima-mcp](https://github.com/CIRWEL/anima-mcp) |
+| **Anima** | Physical longitudinal testbed | Raspberry Pi 4 + sensor stack mapping real temperature, light, humidity, pressure, and system telemetry into EISV trajectories. The source behind the papers and dataset; the richer creature/art interface lives in the repo. → [anima-mcp](https://github.com/CIRWEL/anima-mcp) |
 | **Research** | 3 papers / preprints | Information-theoretic fleet governance ([v6, DOI](https://doi.org/10.5281/zenodo.19647159)) · trajectory identity ([Wang 2026b](https://github.com/CIRWEL/trajectory-identity-paper)) · digital proprioception ([Wang 2026c](https://github.com/CIRWEL/digital-proprioception-paper)). |
 | **Datasets** | Published telemetry corpora | [32,181 labeled EISV trajectories](https://huggingface.co/datasets/hikewa/unitares-eisv-trajectories) (20,655 real) · [verdict-counterfactual repro kit](https://github.com/CIRWEL/unitares-repro-v6). |
 
