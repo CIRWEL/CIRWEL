@@ -1,19 +1,21 @@
-<img alt="CIRWEL — infrastructure for long-lived AI agents" src="./assets/cirwel-stack.svg" width="100%">
+<img alt="CIRWEL — runtime infrastructure for persistent AI agents" src="./assets/cirwel-stack.svg" width="100%">
 
 ## CIRWEL
 
-**Infrastructure for long-lived AI agents.**
+**Runtime infrastructure for persistent AI agents.**
 
-CIRWEL builds systems for agent work that lasts longer than one prompt or process.
+CIRWEL builds systems for agent work that spans sessions, restarts, and handoffs.
 
-The main project is **[UNITARES](https://github.com/CIRWEL/unitares)** — a self-hosted runtime layer that keeps identity, evidence, memory, runtime state, review, and coordination accountable across restarts, handoffs, and long-running work.
+The main project is **[UNITARES](https://github.com/CIRWEL/unitares)** — a self-hosted runtime layer that keeps identity, evidence, memory, runtime state, review, and coordination accountable across those boundaries.
+
+Here, **persistent** does not mean one process runs forever. It means the accountable work can continue across transient processes without losing identity, evidence, or memory.
 
 UNITARES runs alongside model providers and agent frameworks rather than replacing them.
 
 ### Start here
 
 **[UNITARES](https://github.com/CIRWEL/unitares)**  
-Runtime infrastructure for long-lived agents. MCP, REST, SDK, shared memory, review, policy, recovery, and coordination.
+Runtime infrastructure for persistent agents. MCP, REST, SDK, shared memory, review, policy, recovery, and coordination.
 
 ```bash
 git clone https://github.com/CIRWEL/unitares
