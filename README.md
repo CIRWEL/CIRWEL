@@ -1,44 +1,52 @@
-<img alt="CIRWEL stack — runtime governance for heterogeneous AI-agent fleets" src="./assets/cirwel-stack.svg" width="100%">
+<img alt="CIRWEL — infrastructure for long-lived AI agents" src="./assets/cirwel-stack.svg" width="100%">
 
-## Kenny Wang — CIRWEL Systems
+## CIRWEL
 
-I build **runtime accountability infrastructure for long-lived AI-agent systems**: a self-hosted checkpoint layer that operates *after* deployment, while agents are running. At meaningful checkpoints it binds claims to a process identity, updates a longitudinal state estimate, returns an auditable `proceed` or `pause` action, and preserves the evidence behind it.
+**Infrastructure for long-lived AI agents.**
 
-The maintainer deployment has run continuously on a single-operator development fleet since **November 2025**. That establishes sustained operation under real load, not incident prevention, predictive utility, or cross-operator generality. External pilots are the next step.
+CIRWEL builds systems for agent work that lasts longer than one prompt or process.
 
-### → [**cirwel.github.io**](https://cirwel.github.io) — the full index
+The main project is **[UNITARES](https://github.com/CIRWEL/unitares)** — a self-hosted runtime layer that keeps identity, evidence, memory, runtime state, review, and coordination accountable across restarts, handoffs, and long-running work.
 
-Papers, systems, datasets, and decks, all in one place. **That page is canonical**; this profile is just the front door.
+UNITARES runs alongside model providers and agent frameworks rather than replacing them.
 
-[![Index](https://img.shields.io/badge/▶_Full_index-cirwel.github.io-5eead4?style=for-the-badge&labelColor=0f171f)](https://cirwel.github.io)
-[![UNITARES](https://img.shields.io/badge/UNITARES-governance_runtime-1f6feb?style=for-the-badge&labelColor=0f171f)](https://github.com/CIRWEL/unitares)
-[![Paper v6](https://img.shields.io/badge/Paper_v6-DOI-8957e5?style=for-the-badge&labelColor=0f171f)](https://doi.org/10.5281/zenodo.19647159)
+### Start here
 
----
+**[UNITARES](https://github.com/CIRWEL/unitares)**  
+Runtime infrastructure for long-lived agents. MCP, REST, SDK, shared memory, review, policy, recovery, and coordination.
 
-### The work, in four lines
+```bash
+git clone https://github.com/CIRWEL/unitares
+cd unitares
+docker compose up -d --wait
+```
 
-| | | |
-|---|---|---|
-| **UNITARES** | Governance runtime (MCP + HTTP, Postgres-backed) | Agents check in; it updates a longitudinal state estimate from claims, available outcomes, and behavioral history, then returns a binary `proceed` or `pause` action with a reason. `guide` and `reject` are sub-actions, not peer verdicts. Live since Nov 2025. → [repo](https://github.com/CIRWEL/unitares) |
-| **Anima** | Physical longitudinal testbed | Raspberry Pi 4 + sensor stack mapping real temperature, light, humidity, pressure, and system telemetry into EISV trajectories. It produced the 39-day real run behind the real-window portion of the labeled dataset; the richer creature/art interface lives in the repo. → [anima-mcp](https://github.com/CIRWEL/anima-mcp) |
-| **Research** | 3 papers / preprints | Information-theoretic fleet governance ([v6, DOI](https://doi.org/10.5281/zenodo.19647159)) · trajectory identity ([Wang 2026b](https://github.com/CIRWEL/trajectory-identity-paper)) · digital proprioception ([Wang 2026c](https://github.com/CIRWEL/digital-proprioception-paper)). |
-| **Datasets** | Published telemetry corpora | [32,181 labeled EISV windows](https://huggingface.co/datasets/hikewa/unitares-eisv-trajectories): 20,655 overlapping real windows from one 39-day Raspberry Pi run plus 11,526 synthetic · [verdict-counterfactual repro kit](https://github.com/CIRWEL/unitares-repro-v6). |
+**[unitares-sdk](https://pypi.org/project/unitares-sdk/)**  
+The public agent-side contract.
 
-**Start here:** [`unitares`](https://github.com/CIRWEL/unitares) → `docker compose up -d --wait && make demo` drives a synthetic agent through six check-ins and prints the policy response at each step.
+```bash
+pip install unitares-sdk
+```
 
-**Build on it:** [`unitares-sdk`](https://pypi.org/project/unitares-sdk/) on PyPI is the agent-side contract (check-in loop, EISV state, identity anchors). `pip install unitares-sdk`.
+### Research
 
-### For reviewers
+CIRWEL also studies whether longitudinal runtime signals contain useful information beyond outputs and traces.
 
-- **What this is:** self-hosted runtime accountability and state estimation for long-lived agent processes, the checkpoint layer between evals/guardrails and incident response.
-- **What this is not:** not an output filter, not a sandbox, not a correctness or ethics oracle, and not evidence yet of preventive benefit or cross-operator generality.
-- **Current ask:** external pilots and [design partners](./docs/design-partners.md) who already run autonomous agents long enough for drift, calibration, and recovery to matter.
+That work is treated as an empirical question, not a product assumption.
 
----
+- [UNITARES paper](https://doi.org/10.5281/zenodo.19647159)
+- [Trajectory Identity](https://github.com/CIRWEL/trajectory-identity-paper)
+- [Digital Proprioception](https://github.com/CIRWEL/digital-proprioception-paper)
+- [Datasets and models](https://huggingface.co/hikewa)
 
-<sub>
+### Built under its own machinery
 
-[Full index ↗](https://cirwel.github.io) · [GitHub](https://github.com/CIRWEL) · [HuggingFace](https://huggingface.co/hikewa) · [ORCID](https://orcid.org/0009-0006-7544-2374) · [CIRWEL Systems](https://cirwel.org) · founder@cirwel.org
+CIRWEL uses UNITARES in its own development environment.
 
-</sub>
+Agents working on the stack use attributed memory, advisory consultation, structured review, evidence-linked check-ins, and coordinated handoffs. Advice remains evidence rather than automatically becoming authority.
+
+The deployment has been running continuously since November 2025. That demonstrates sustained use of the mechanisms in one operator's environment; it does not establish predictive benefit, incident prevention, or cross-operator generality.
+
+### Elsewhere
+
+[cirwel.org](https://cirwel.org) · [Research index](https://cirwel.github.io) · [Hugging Face](https://huggingface.co/hikewa) · founder@cirwel.org
